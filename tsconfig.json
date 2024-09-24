@@ -21,6 +21,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    /* Cypress */
+    "types": ["cypress"],
+    /* Alias */
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -31,6 +34,7 @@
   "include": [
     "src",
     "vite.config.ts",
-    "setupTests.ts"
+    "setupTests.ts",
+    "cypress/**/*.ts"
   ]
 }
