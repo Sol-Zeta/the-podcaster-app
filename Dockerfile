@@ -7,16 +7,16 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies (including devDependencies)
+# Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the Next.js application
+# Build the Vite application
 RUN npm run build
 
 # Expose port
-EXPOSE 3000
+EXPOSE 4000
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "preview", "--", "--port", "4000", "--host"]
