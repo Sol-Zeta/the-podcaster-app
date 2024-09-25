@@ -21,8 +21,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    /* Cypress */
-    "types": ["cypress"],
+    /* Types */
+    "types": [
+      "cypress",
+      "jest",
+      "@testing-library/jest-dom",
+      "node"
+    ],
     /* Alias */
     "baseUrl": ".",
     "paths": {
