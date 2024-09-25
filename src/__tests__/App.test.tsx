@@ -3,6 +3,6 @@ import App from "../App.tsx";
 
 test("renders react heading", () => {
   render(<App />);
-  const linkElement = screen.getByRole('heading');
-  expect(linkElement).toHaveTextContent(/react/i);
+  const headerElement = screen.getByText('Podcaster');
+  expect(headerElement).toBeInTheDocument();
 });
