@@ -12,7 +12,6 @@ describe("Card Component", () => {
       </Router>
     );
 
-    // Check if the title, author, and image are rendered correctly
     expect(screen.getByText(mockProps.title)).toBeInTheDocument();
     expect(screen.getByText(mockProps.author)).toBeInTheDocument();
     expect(screen.getByRole("img")).toHaveAttribute(
