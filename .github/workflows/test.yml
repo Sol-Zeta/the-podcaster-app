@@ -17,18 +17,18 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -t the-holocron-app .
+        run: docker build -t the-podcaster-app .
 
       - name: Run Docker container
-        run: docker run --name the-holocron-app-container -d the-holocron-app
+        run: docker run --name the-podcaster-app-container -d the-podcaster-app
 
       - name: Run unit tests
-        run: docker exec the-holocron-app-container npm run test
+        run: docker exec the-podcaster-app-container npm run test
 
       - name: Run Cypress tests
-        run: docker exec the-holocron-app-container npm run cypress:run
+        run: docker exec the-podcaster-app-container npm run cypress:run
 
       - name: Stop and remove Docker container
         run: |
-          docker stop the-holocron-app-container
-          docker rm the-holocron-app-container
+          docker stop the-podcaster-app-container
+          docker rm the-podcaster-app-container
