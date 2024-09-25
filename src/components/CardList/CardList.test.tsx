@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom"; // Wrap in Router for Link component
-import CardList from "./index"; // Adjust the import path if necessary
+import { BrowserRouter as Router } from "react-router-dom";
+import CardList from "./index";
 import { mockPodcastList } from "@/utils/test";
 
 describe("CardList Component", () => {
