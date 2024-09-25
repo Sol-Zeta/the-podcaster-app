@@ -3,14 +3,14 @@ import { MemoryRouter } from "react-router";
 import AppRoutes from "./index";
 
 describe("App routing", () => {
-  test("renders Home component on default route", () => {
+  test("renders Home component on default route", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <AppRoutes />
       </MemoryRouter>
     );
-
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    expect(screen.getByTestId("Home")).toBeInTheDocument();
   });
 
   test("renders PodcastDetail component on /podcast/:podcastId route", () => {

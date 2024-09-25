@@ -24,7 +24,7 @@ describe("Header component", () => {
 
     const loaderElement = screen.getByTestId("puff-loading");
     expect(loaderElement).toBeVisible();
-
+    
     await new Promise((resolve) => setTimeout(resolve, 2000));
     expect(loaderElement).not.toBeVisible();
   });
