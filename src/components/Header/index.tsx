@@ -20,6 +20,9 @@ const Header: React.FC = () => {
       <Link to="/" className={styles.title}>
         Podcaster
       </Link>
+      <Link to="/podcast/1" className={styles.title}>
+        Detail
+      </Link>
       <Loader isLoading={isLoading}/>
     </header>
   );
