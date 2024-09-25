@@ -1,0 +1,25 @@
+@import "@/styles/main.scss";
+
+.cardList {
+  padding: $spacing-large 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-medium;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@include respond-to(tablet) {
+  .cardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@include respond-to(desktop) {
+  .cardList {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 1200px;
+  }
+}
