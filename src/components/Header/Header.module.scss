@@ -1,0 +1,24 @@
+@import "@/styles/main.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  padding: $spacing-small $spacing-large;
+  background-color: $background-color;
+  border-bottom: 1px solid $line-color;
+  color: $secondary-color;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-decoration: none;
+  &:hover {
+    color: $secondary-color;
+  }
+}
