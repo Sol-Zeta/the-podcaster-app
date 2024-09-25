@@ -25,6 +25,8 @@
     "types": [
       "cypress",
       "jest",
+      "vitest",
+      "vite/client",
       "@testing-library/jest-dom",
       "node"
     ],
