@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
-import Loader from "../Loader";
+import Loader from "@/components/Loader";
 
 const Header: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,9 +19,6 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <Link to="/" className={styles.title}>
         Podcaster
-      </Link>
-      <Link to="/podcast/1" className={styles.title}>
-        Detail
       </Link>
       <Loader isLoading={isLoading}/>
     </header>
