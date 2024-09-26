@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import styles from "./EpisodesGrid.module.scss";
 import Card from "@/components/common/Card";
 
@@ -10,12 +10,14 @@ interface Episode {
   duration: string;
 }
 
-interface EpisodesGridProps {
+interface EpisodesGridContextType {
   podcastId?: string;
   episodes: Episode[];
 }
 
-const EpisodesGrid: React.FC<EpisodesGridProps> = ({ podcastId, episodes }) => {
+const EpisodesGrid: React.FC = () => {
+  const { podcastId = '', episodes } = useOutletContext<EpisodesGridContextType>();
+  
   if (episodes.length === 0) {
     return (
       <div data-testid="EpisodesGrid" className={styles.episodesGridContainer}>
@@ -23,6 +25,7 @@ const EpisodesGrid: React.FC<EpisodesGridProps> = ({ podcastId, episodes }) => {
       </div>
     );
   }
+
   return (
     <div data-testid="EpisodesGrid" className={styles.episodesGridContainer}>
       <Card>

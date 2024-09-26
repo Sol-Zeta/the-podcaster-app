@@ -1,11 +1,3 @@
-export interface DetailCardProps {
-  id: string;
-  title: string;
-  author: string;
-  image: string;
-  description: string;
-}
-
 export interface PodcastEpisodes {
   id: string;
   title: string;

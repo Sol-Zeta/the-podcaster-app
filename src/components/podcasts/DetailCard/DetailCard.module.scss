@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
   gap: $spacing-medium;
-
+  color: $text-color;
+  padding: $spacing-medium;
   @include respond-to(desktop) {
     justify-content: flex-start;
-    max-width: 250px;
   }
 }
 
@@ -28,6 +28,7 @@
   text-align: left;
   padding: $spacing-medium;
   font-size: $font-size-small;
+  max-width: 100%;
   .title {
     text-transform: uppercase;
     font-size: $font-size-base;
@@ -44,6 +45,8 @@
   }
   .description {
     font-style: italic;
-    @include long-text-truncate;
+    @include respond-to(desktop) {
+      @include long-text-truncate;
+    }
   }
 }
