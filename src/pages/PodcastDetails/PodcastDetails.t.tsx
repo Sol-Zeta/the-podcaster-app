@@ -8,9 +8,9 @@ import { usePodcasts } from "@/hooks/usePodcasts";
 vi.mock("@/hooks/usePodcasts");
 
 describe("Home Component", () => {
-  it("should display Loader component when podcasts are loading", () => {
+  it("should display loading state when podcasts are loading", () => {
     (usePodcasts as any).mockReturnValue({
-      data: [],
+      podcasts: [],
       isLoading: true,
       isError: false,
     });
@@ -20,12 +20,12 @@ describe("Home Component", () => {
         <Home />
       </MemoryRouter>
     );
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument();
   });
 
   it("should display error state when there is an error", () => {
     (usePodcasts as any).mockReturnValue({
-      data: [],
+      podcasts: [],
       isLoading: false,
       isError: true,
     });
@@ -38,9 +38,10 @@ describe("Home Component", () => {
     expect(screen.getByText(/error loading podcasts/i)).toBeInTheDocument();
   });
 
-  it("should render the PodcastList component when podcasts are loaded", () => {
+  it("should render the CardList component when podcasts are loaded", () => {
+
     (usePodcasts as any).mockReturnValue({
-      data: mockPodcastList,
+      podcasts: mockPodcastList,
       isLoading: false,
       isError: false,
     });
@@ -52,9 +53,7 @@ describe("Home Component", () => {
     );
 
     expect(screen.getByTestId("Home")).toBeInTheDocument();
-    expect(screen.getByRole("list")).toBeInTheDocument();
-    mockPodcastList.forEach((podcast) => {
-      expect(screen.getByText(podcast.title)).toBeInTheDocument();
-    });
+    expect(screen.getByText("Test Podcast 1")).toBeInTheDocument();
+    expect(screen.getByText("Test Podcast 2")).toBeInTheDocument();
   });
 });
