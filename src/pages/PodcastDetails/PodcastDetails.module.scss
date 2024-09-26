@@ -1,4 +1,23 @@
-.detailsContainer {
-    display: flex;
-    justify-content: center;
+@import "@/styles/main.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.podcastDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: $spacing-xlarge;
+  padding: $spacing-large;
+  @include respond-to(tablet) {
+    max-width: 90%;
+  }
+
+  @include respond-to(desktop) {
+    flex-direction: row;
+    max-width: 1200px;
+  }
 }

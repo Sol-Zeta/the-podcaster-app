@@ -16,7 +16,7 @@ export default defineConfig({
     open: true,
   },
   preview: {
-    port: 4000,
+    port: 3000,
     open: false,
   },
   resolve: {

@@ -17,7 +17,6 @@ export const usePodcastsDetails = (podcastId: string) => {
   const isCacheExpired = checkIsCacheExpired(CACHE_KEY);
 
   if (!isCacheExpired) {
-    console.log("not fetching");
     return {
       data: getLocalStorageItem(CACHE_KEY),
       isLoading: false,
@@ -25,7 +24,7 @@ export const usePodcastsDetails = (podcastId: string) => {
     };
   }
 
-  const { data, error, mutate } = useSWR(
+  const { data, error, mutate, isLoading } = useSWR(
     CACHE_KEY,
     isCacheExpired ? () => fetchPodcastDetails(podcastId) : null,
     {
@@ -45,10 +44,9 @@ export const usePodcastsDetails = (podcastId: string) => {
       mutate();
     }
   }, [isCacheExpired, data, mutate]);
-
   return {
     data,
-    isLoading: !error && !data,
+    isLoading,
     isError: error,
   };
 };
