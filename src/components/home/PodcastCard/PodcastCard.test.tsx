@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Card from "./index";
+import PodcastCard from "./index";
 import { mockPodcastList } from "@/utils/test";
 
-describe("Card Component", () => {
+describe("PodcastCard Component", () => {
   const mockProps = mockPodcastList[0];
-  test("renders the card with the correct title, author, and image", () => {
+  test("renders the PodcastCard with the correct title, author, and image", () => {
     render(
       <Router>
-        <Card {...mockProps} />
+        <PodcastCard {...mockProps} />
       </Router>
     );
 
@@ -24,7 +24,7 @@ describe("Card Component", () => {
   test("links to the correct URL", () => {
     render(
       <Router>
-        <Card {...mockProps} />
+        <PodcastCard {...mockProps} />
       </Router>
     );
 

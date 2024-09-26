@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
-import Loader from "@/components/Loader";
+import Loader from "@/components/common/Loader";
 
 const Header: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
