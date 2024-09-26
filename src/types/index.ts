@@ -1,12 +1,23 @@
-export interface CardImage {
-  image_url: string;
-  height: string;
-}
-
-export interface CardProps {
+export interface DetailCardProps {
   id: string;
   title: string;
   author: string;
-  images: CardImage[];
+  image: string;
+  description: string;
+}
+
+
+export interface PodcastEpisodes {
+  id: string;
+  title: string;
   href: string;
+  date: string;
+  duration: string;
+}
+export interface PodcastFormatedDetails {
+  id: string;
+  image_url: string;
+  title: string;
+  description: string;
+  episodes: PodcastEpisodes[];
 }
