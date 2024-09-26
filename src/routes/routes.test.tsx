@@ -24,13 +24,13 @@ describe("App routing", () => {
     expect(screen.getByTestId("PodcastDetails")).toBeInTheDocument();
   });
 
-  test("renders EpisodeDetails component on /podcast/:podcastId/episode/:episodeId route", () => {
+  test("renders EpisodeDetails component on /podcast/:podcastId/episode/:episodeId route", async () => {
     render(
-      <MemoryRouter initialEntries={["/podcast/1/episode/1"]}>
+      <MemoryRouter initialEntries={["/podcast/1607694785/episode/1000663830948"]}>
         <AppRoutes />
       </MemoryRouter>
     );
-
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     expect(screen.getByText(/EpisodeDetails/i)).toBeInTheDocument();
   });
 
