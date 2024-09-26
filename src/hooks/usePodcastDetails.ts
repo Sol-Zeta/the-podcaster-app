@@ -1,9 +1,8 @@
 import useSWR from "swr";
-import { fetchTopPodcasts } from "@/services/api";
+import { fetchPodcastDetails } from "@/services/api";
 import {
   CACHE_EXPIRATION_TIME,
-  PODCAST_LIST_CACHE_KEY,
-  CACHE_TIMESTAMP_KEY,
+  PODCAST_DETAILS_CACHE_KEY,
 } from "@/utils/config";
 import { checkIsCacheExpired } from "./utils";
 import {
@@ -13,13 +12,22 @@ import {
 } from "@/utils/localStorage";
 import { useEffect } from "react";
 
-export const usePodcasts = () => {
-  const CACHE_KEY = PODCAST_LIST_CACHE_KEY;
+export const usePodcastsDetails = (podcastId: string) => {
+  const CACHE_KEY = `${PODCAST_DETAILS_CACHE_KEY}${podcastId}`;
   const isCacheExpired = checkIsCacheExpired(CACHE_KEY);
+
+  if (!isCacheExpired) {
+    console.log("not fetching");
+    return {
+      data: getLocalStorageItem(CACHE_KEY),
+      isLoading: false,
+      isError: false,
+    };
+  }
 
   const { data, error, mutate } = useSWR(
     CACHE_KEY,
-    isCacheExpired ? fetchTopPodcasts : null,
+    isCacheExpired ? () => fetchPodcastDetails(podcastId) : null,
     {
       revalidateOnFocus: false,
       dedupingInterval: CACHE_EXPIRATION_TIME,
@@ -29,7 +37,7 @@ export const usePodcasts = () => {
 
   if (data) {
     setLocalStorageItem(CACHE_KEY, data);
-    setLocalStorageTimestamp(CACHE_TIMESTAMP_KEY);
+    setLocalStorageTimestamp(`CACHE_TIMESTAMP_KEY_${CACHE_KEY}`);
   }
 
   useEffect(() => {
