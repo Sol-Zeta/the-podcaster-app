@@ -1,0 +1,53 @@
+@import "@/styles/main.scss";
+
+.episodesGridContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-medium;
+  min-width: 280px;
+  > div {
+    padding: $spacing-small;
+  }
+  h3 {
+    font-size: $font-size-large;
+    margin: 0;
+    align-self: flex-start;
+  }
+  @include respond-to(desktop) {
+    max-width: 800px;
+  }
+}
+
+.episodeCount {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.episodeTable {
+  width: 100%;
+  border-collapse: collapse;
+  padding: $spacing-medium;
+  
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid $line-color;
+  }
+
+  th {
+    background-color: $background-color;
+    font-weight: bold;
+  }
+
+  tr:nth-child(odd) {
+    background-color: $background-color-gray;
+  }
+  tbody td:last-child {
+    text-align: center;
+  }
+
+  tr:hover {
+    background-color: $background-color-secondary;
+  }
+}

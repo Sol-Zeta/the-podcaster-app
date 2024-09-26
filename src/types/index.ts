@@ -6,7 +6,6 @@ export interface DetailCardProps {
   description: string;
 }
 
-
 export interface PodcastEpisodes {
   id: string;
   title: string;
@@ -14,10 +13,12 @@ export interface PodcastEpisodes {
   date: string;
   duration: string;
 }
+
 export interface PodcastFormatedDetails {
   id: string;
   image_url: string;
   title: string;
   description: string;
   episodes: PodcastEpisodes[];
+  author: string;
 }

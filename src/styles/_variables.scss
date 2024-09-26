@@ -6,7 +6,8 @@ $text-color-secondary: #666;
 $light-text-color: #fff;
 $background-color: #f4f4f4;
 $background-color-secondary: #e3effb;
-$line-color: #b8b8b8;
+$background-color-gray: #e5e5e5;
+$line-color: #d4d4d4;
 
 // Fonts
 $font-family: 'Roboto', sans-serif;
@@ -19,6 +20,7 @@ $font-size-large: 1.25rem;    // 20px
 $spacing-small: 0.5rem;       // 8px
 $spacing-medium: 1rem;        // 16px
 $spacing-large: 2rem;         // 32px
+$spacing-xlarge: 4rem;         // 64px
 
 // Breakpoints
 $breakpoint-mobile: 576px;
