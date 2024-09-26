@@ -1,3 +1,4 @@
+export const ALL_ORIGINS_URL = 'https://api.allorigins.win/get?url='
 export const API_BASE_URL = 'https://itunes.apple.com/';
 export const TOP_PODCASTS_URL = 'us/rss/toppodcasts/limit=100/genre=1310/json';
 export const PODCAST_DETAILS_ID_URL = 'lookup?media=podcast&entity=podcastEpisode&limit=20&id=';

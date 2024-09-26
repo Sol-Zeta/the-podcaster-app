@@ -11,6 +11,7 @@ import {
 import { PODCAST_LIST_CACHE_KEY } from "@/utils/config";
 import { getLocalStorageItem } from "@/utils/localStorage";
 import { PodcastCardProps } from "@/components/home/PodcastCard";
+import { fetchTopPodcasts } from "./api";
 
 /**
  * Transform API response into CardProps[].
@@ -26,10 +27,11 @@ export const formatPodcastListResponse = (
     title: podcast["im:name"]?.label || "",
     author: podcast["im:artist"]?.label || "",
     description: podcast.summary?.label || "",
-    images: podcast["im:image"]?.map((img: PodcastImage) => ({
-      image_url: img.label,
-      height: img.attributes?.height || "",
-    })) || [],
+    images:
+      podcast["im:image"]?.map((img: PodcastImage) => ({
+        image_url: img.label,
+        height: img.attributes?.height || "",
+      })) || [],
     href: `/podcast/${podcast.id.attributes["im:id"]}`,
   })) || [];
 
@@ -71,25 +73,45 @@ export const formatDateToDDMMYYYY = (isoDate: string): string => {
  * @return PodcastDetails - An object to use in PodcastDetails Page
  */
 
-export const formatPodcastDetailResponse = (
+export const formatPodcastDetailResponse = async (
   podcastId: string,
   podcastEpisodes: PodcastDetailsApiResponse
-): PodcastFormatedDetails => {
-  const podcastData: PodcastCardProps = getLocalStorageItem(
-    PODCAST_LIST_CACHE_KEY
-  ).find((item: PodcastCardProps) => item.id === podcastId);
+): Promise<PodcastFormatedDetails> => {
+  try {
+    let listData: PodcastCardProps[] = getLocalStorageItem(
+      PODCAST_LIST_CACHE_KEY
+    );
 
-  return {
-    id: podcastData.id,
-    image_url: podcastData.images[0].image_url,
-    title: podcastData.title,
-    description: podcastData.description || "",
-    episodes: podcastEpisodes.results.map((item: PodcastDetails) => ({
-      id: item.trackId.toString(),
-      title: item.trackName,
-      href: `podcast/${podcastData.id}/episode/${item.trackId}`,
-      date: formatDateToDDMMYYYY(item.releaseDate),
-      duration: msToHoursMinutesAndSeconds(item.trackTimeMillis),
-    })),
-  };
+    if (!listData) {
+      const podcastList = await fetchTopPodcasts();
+      if (!podcastList) {
+        throw new Error("No podcast list found");
+      }
+      listData = podcastList;
+    }
+
+    const podcastData = listData.find(
+      (item: PodcastCardProps) => item.id === podcastId
+    );
+    if (!podcastData) {
+      throw new Error("No podcast data found");
+    }
+    return {
+      id: podcastData.id,
+      image_url: podcastData.images[0].image_url,
+      title: podcastData.title,
+      description: podcastData.description || "",
+      author: podcastData.author,
+      episodes: podcastEpisodes.results.map((item: PodcastDetails) => ({
+        id: item.trackId.toString(),
+        title: item.trackName,
+        href: `podcast/${podcastData.id}/episode/${item.trackId}`,
+        date: formatDateToDDMMYYYY(item.releaseDate),
+        duration: msToHoursMinutesAndSeconds(item.trackTimeMillis),
+      })),
+    };
+  } catch (error) {
+    console.error("Error fetching podcast details:", error);
+    throw error;
+  }
 };

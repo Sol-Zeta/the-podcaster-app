@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 @mixin center-flex {
   display: flex;
@@ -13,6 +13,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-height: 1.2;
+}
+
+@mixin long-text-truncate {
+  @include text-truncate;
+  -webkit-line-clamp: 10;
 }
 
 @mixin respond-to($breakpoint) {
