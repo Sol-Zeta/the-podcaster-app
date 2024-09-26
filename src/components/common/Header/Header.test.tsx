@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Header from "@/components/Header";
+import Header from "./index";
 
 describe("Header component", () => {
   test("renders the title and link to the home page", () => {

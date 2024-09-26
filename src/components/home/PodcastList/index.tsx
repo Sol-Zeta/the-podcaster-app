@@ -1,18 +1,17 @@
 import React, { memo } from "react";
-import styles from "./CardList.module.scss";
-import { CardProps } from "@/types";
-import Card from "@/components/Card";
+import styles from "./PodcastList.module.scss";
+import PodcastCard, { PodcastCardProps } from "@/components/home/PodcastCard";
 
-interface CardListProps {
-  items: CardProps[]
+interface PodcastListProps {
+  items: PodcastCardProps[]
 }
 
-const CardList: React.FC<CardListProps> = ({items}) => {
+const PodcastList: React.FC<PodcastListProps> = ({items}) => {
   return (
     <ul className={styles.cardList}>
-      {items?.map((podcast: CardProps) => (
+      {items?.map((podcast: PodcastCardProps) => (
         <li key={podcast.id}>
-          <Card
+          <PodcastCard
             key={podcast.id}
             id={podcast.id}
             images={podcast.images}
@@ -26,4 +25,4 @@ const CardList: React.FC<CardListProps> = ({items}) => {
   );
 };
 
-export default memo(CardList);
+export default memo(PodcastList);

@@ -1,0 +1,26 @@
+@import "@/styles/main.scss";
+
+.imageContainer {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: $spacing-medium;
+  .title {
+    text-transform: uppercase;
+    font-size: $font-size-base;
+    @include text-truncate;
+  }
+
+  .author {
+    padding-top: $spacing-medium;
+    color: $text-color-secondary;
+  }
+}
