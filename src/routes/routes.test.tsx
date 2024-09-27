@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import AppRoutes from "./index";
+import { waitMS } from "@/utils/test";
 
 describe("App routing", () => {
   test("renders Home component on default route", async () => {
@@ -9,7 +10,7 @@ describe("App routing", () => {
         <AppRoutes />
       </MemoryRouter>
     );
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await waitMS(2000);
     expect(screen.getByTestId("Home")).toBeInTheDocument();
   });
 
@@ -20,7 +21,7 @@ describe("App routing", () => {
       </MemoryRouter>
     );
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await waitMS(2000);
     expect(screen.getByTestId("PodcastDetails")).toBeInTheDocument();
   });
 
@@ -32,7 +33,7 @@ describe("App routing", () => {
         <AppRoutes />
       </MemoryRouter>
     );
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await waitMS(2000);
     expect(screen.getByTestId("EpisodeDetails")).toBeInTheDocument();
   });
 

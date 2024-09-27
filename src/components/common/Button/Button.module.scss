@@ -1,0 +1,14 @@
+@import "@/styles/main.scss";
+
+.button {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-large;
+  color: $text-color-secondary;
+  &:hover {
+    color: $secondary-color;
+  }
+}
