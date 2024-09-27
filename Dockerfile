@@ -19,4 +19,4 @@ RUN npm run build
 # Expose port
 EXPOSE 4000
 
-CMD ["npm", "run", "preview", "--", "--port", "4000", "--host"]
+CMD ["npm", "run", "preview", "--", "--port", "3000", "--host"]

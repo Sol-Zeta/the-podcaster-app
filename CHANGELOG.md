@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.0] - 2024-09-27
+### Added
+- Added context for `Loader`.
+- e2e tests coverage.
+
 ## [1.2.0] - 2024-09-27
 ### Added
 - Added `FilterInput` component to filter the podcast list in real-time.
