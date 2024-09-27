@@ -2,18 +2,7 @@ import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import styles from "./EpisodesGrid.module.scss";
 import Card from "@/components/common/Card";
-
-interface Episode {
-  id: string;
-  title: string;
-  date: string;
-  duration: string;
-}
-
-interface EpisodesGridContextType {
-  podcastId?: string;
-  episodes: Episode[];
-}
+import { EpisodesGridContextType } from "@/types";
 
 const EpisodesGrid: React.FC = () => {
   const { podcastId = '', episodes } = useOutletContext<EpisodesGridContextType>();

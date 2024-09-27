@@ -1,0 +1,23 @@
+@import "@/styles/main.scss";
+
+.episodeDetailContainer {
+  padding: $spacing-medium $spacing-small $spacing-small;
+  * {
+    text-align: left;
+  }
+  h3 {
+    padding-bottom: $spacing-small;
+  }
+  p {
+    font-style: italic;
+  }
+}
+
+.audioPlayer {
+  margin-top: $spacing-large;
+  background-color: $background-color;
+  color: $background-color;
+  border-radius: 4px;
+  width: 100%;
+  filter: invert(100%);
+}

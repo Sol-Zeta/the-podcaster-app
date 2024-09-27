@@ -26,12 +26,14 @@ describe("App routing", () => {
 
   test("renders EpisodeDetails component on /podcast/:podcastId/episode/:episodeId route", async () => {
     render(
-      <MemoryRouter initialEntries={["/podcast/1607694785/episode/1000663830948"]}>
+      <MemoryRouter
+        initialEntries={["/podcast/1607694785/episode/1000663830948"]}
+      >
         <AppRoutes />
       </MemoryRouter>
     );
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    expect(screen.getByText(/EpisodeDetails/i)).toBeInTheDocument();
+    expect(screen.getByTestId("EpisodeDetails")).toBeInTheDocument();
   });
 
   test("renders NotFound component on unknown route", () => {
