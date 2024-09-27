@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# The Podcaster App (React.js SPA)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000)
 
-Currently, two official plugins are available:
+**Este README también está disponible en [Español](./README-ES.md).**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Main Features
 
-## Expanding the ESLint configuration
+- **📋 Podcast List:** Access to the 100 top podcasts list.
+- **🔍 Search and Filter:** Filter podcasts in the List by title or author's name.
+- **📜 Podcast Details:** Display details about the podcast and its episodes list.
+- **📜 Episode Details:** Display details about the selected episode.
+- **▶️ Episode Player:** Play the selected episode.
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **ReactJS:** Library for building user interfaces.
+- **React Router Dom:** Enables dynamic routing in React applications.
+- **TypeScript:** Superset of JavaScript with static typing.
+- **Vite:** Build tool that provides a fast development environment.
+- **SASS:** CSS preprocessor for writing styles in a more maintainable way.
+- **Testing Library:** Library for unit testing React components.
+- **Cypress:** Tool for end-to-end (e2e) testing.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+To install the dependencies, run:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    npm install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
+### Development
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+To start the development server:
+
+    npm run dev
+
+### Production
+To build and start the production version:
+
+    npm run build && npm run preview
+
+### Docker
+
+To build and run the application using Docker:
+
+1.  **Build the Docker image:**
+
+    docker build -t the-podcaster-app .
+
+2.  **Run the Docker container:**
+
+        docker run -p 3000:3000 the-podcaster-app
+
+    This will start the application at  [http://localhost:3000](http://localhost:3000).
+
+## Run Tests
+
+### Unit Tests
+
+To run unit tests:
+
+    npm run test
+
+### e2e Tests
+
+To run end-to-end tests with Cypress:
+
+    npm run cypress:open
+
+## Continuous Integration
+
+The project uses **GitHub Actions** to ensure code quality. The workflow is triggered on every push to any branch and performs the following actions:
+
+1. **Build the Docker Image**
+2. **Run the Docker Container**
+3. **Run Unit Tests inside the container**
+4. **Run e2e Tests inside the container**
+5. **Stop and Remove the Docker Container**
+
+## JIRA Board
+
+You can see the project's planning and division into user stories on the following [JIRA board](https://soledadpattoglio.atlassian.net/jira/software/projects/PA/boards/4).
+
+## Author
+
+👩🏻‍💻 **Soledad Pattoglio**
+
+- [Portfolio](https://www.soledadpattoglio.tech/)
+- [LinkedIn](https://www.linkedin.com/in/mspattoglio/)
+- [GitHub](https://github.com/Sol-Zeta)
