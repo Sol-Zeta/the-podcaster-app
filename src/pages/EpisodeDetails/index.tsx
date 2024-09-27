@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useOutletContext } from "react-router-dom";
 import styles from "./EpisodeDetails.module.scss";
 import Card from "@/components/common/Card";
+import Audioplayer from "@/components/common/AudioPlayer";
 import { EpisodesGridContextType } from "@/types";
 import HtmlContent from "@/components/common/HtmlContent";
 
@@ -22,16 +23,12 @@ const EpisodeDetails: React.FC = () => {
         data-testid="EpisodeDetails"
       >
         <h3>{episode?.title}</h3>
-        <HtmlContent htmlContent={episode.description}/>
+        <HtmlContent htmlContent={episode.description} />
         {episode?.track ? (
-          <audio
-            controls
-            className={styles.audioPlayer}
-            data-testid="audioPlayer"
-          >
-            <source src={episode.track} type={`audio/${episode.trackFileExtension}`} />
-            Your browser does not support the audio element.
-          </audio>
+          <Audioplayer
+            track={episode.track}
+            fileExtension={episode.trackFileExtension}
+          />
         ) : (
           <p>This track is not available</p>
         )}
