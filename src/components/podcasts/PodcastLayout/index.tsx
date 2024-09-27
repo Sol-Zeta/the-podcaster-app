@@ -15,7 +15,7 @@ const PodcastDetailsView: React.FC = () => {
   return (
     <div data-testid="PodcastDetails" className={styles.container}>
       <div className={styles.podcastDetailsContainer}>
-        <div className={styles.detailCardContainer}>
+        <aside className={styles.detailCardContainer}>
           <DetailCard
             id={id}
             title={title}
@@ -23,7 +23,7 @@ const PodcastDetailsView: React.FC = () => {
             image={image_url}
             description={description}
           />
-        </div>
+        </aside>
         <div className={styles.outletContainer}>
           <Outlet context={{ podcastId, episodes }} />
         </div>

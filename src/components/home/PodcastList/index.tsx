@@ -3,12 +3,12 @@ import styles from "./PodcastList.module.scss";
 import PodcastCard, { PodcastCardProps } from "@/components/home/PodcastCard";
 
 interface PodcastListProps {
-  items: PodcastCardProps[]
+  items: PodcastCardProps[];
 }
 
-const PodcastList: React.FC<PodcastListProps> = ({items}) => {
+const PodcastList: React.FC<PodcastListProps> = ({ items }) => {
   return (
-    <ul className={styles.cardList}>
+    <ul className={styles.cardList} data-testid="podcastList">
       {items?.map((podcast: PodcastCardProps) => (
         <li key={podcast.id}>
           <PodcastCard
