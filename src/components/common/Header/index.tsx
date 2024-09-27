@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Loader from "@/components/common/Loader";
+import { useLoader } from "@/context/LoaderContext";
 
 const Header: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, showLoader, hideLoader } = useLoader();
   const location = useLocation();
 
   useEffect(() => {
-    setIsLoading(true);
+    showLoader();
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      hideLoader();
     }, 1000);
     return () => clearTimeout(timer);
   }, [location]);
@@ -20,7 +21,7 @@ const Header: React.FC = () => {
       <Link to="/" className={styles.title}>
         Podcaster
       </Link>
-      <Loader isLoading={isLoading}/>
+      <Loader isLoading={isLoading} />
     </header>
   );
 };

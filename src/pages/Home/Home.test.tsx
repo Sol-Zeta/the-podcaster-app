@@ -4,25 +4,11 @@ import { MemoryRouter } from "react-router-dom";
 import Home from "@/pages/Home";
 import { mockPodcastList } from "@/utils/test";
 import { usePodcasts } from "@/hooks/usePodcasts";
+import { LoaderProvider } from "@/context/LoaderContext";
 
 vi.mock("@/hooks/usePodcasts");
 
 describe("Home Component", () => {
-  it("should display Loader component when podcasts are loading", () => {
-    (usePodcasts as any).mockReturnValue({
-      data: [],
-      isLoading: true,
-      isError: false,
-    });
-
-    render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
-    );
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
-  });
-
   it("should display error state when there is an error", () => {
     (usePodcasts as any).mockReturnValue({
       data: [],
@@ -31,9 +17,11 @@ describe("Home Component", () => {
     });
 
     render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
+      <LoaderProvider>
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      </LoaderProvider>
     );
     expect(screen.getByText(/error loading podcasts/i)).toBeInTheDocument();
   });
@@ -46,9 +34,11 @@ describe("Home Component", () => {
     });
 
     render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
+      <LoaderProvider>
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      </LoaderProvider>
     );
 
     expect(screen.getByTestId("Home")).toBeInTheDocument();

@@ -8,7 +8,7 @@ const PodcastDetailsView: React.FC = () => {
   const { podcastId } = useParams<{ podcastId: string }>();
   const { data, isLoading, isError } = usePodcastsDetails(podcastId || "1");
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return null;
   if (isError) return <p>Error loading podcast data</p>;
   const { id, title, author, image_url, description, episodes } = data;
 

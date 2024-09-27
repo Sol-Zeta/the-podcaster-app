@@ -2,13 +2,16 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Header from "./index";
 import { waitMS } from "@/utils/test";
+import { LoaderProvider } from "@/context/LoaderContext";
 
 describe("Header component", () => {
   test("renders the title and link to the home page", () => {
     render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
+      <LoaderProvider>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </LoaderProvider>
     );
 
     const titleElement = screen.getByText(/Podcaster/i);
@@ -18,9 +21,11 @@ describe("Header component", () => {
 
   test("shows and hides Loader component when navigating", async () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Header />
-      </MemoryRouter>
+      <LoaderProvider>
+        <MemoryRouter initialEntries={["/"]}>
+          <Header />
+        </MemoryRouter>
+      </LoaderProvider>
     );
 
     const loaderElement = screen.getByTestId("puff-loading");
