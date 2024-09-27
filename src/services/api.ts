@@ -16,18 +16,6 @@ const api = axios.create({
   timeout: 5000,
 });
 
-// const getData = async (url: string) => {
-//   try {
-//     const response = await api.get(url);
-//     console.log("getData - response", response);
-//     const data = JSON.parse(response.data.contents);
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching podcast data:", error);
-//     throw error;
-//   }
-// };
-
 export const fetchTopPodcasts = async () => {
   const response = await api.get(TOP_PODCASTS_URL);
   return formatPodcastListResponse(response);

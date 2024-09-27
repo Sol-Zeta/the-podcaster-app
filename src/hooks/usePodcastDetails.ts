@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useSWR from "swr";
 import { fetchPodcastDetails } from "@/services/api";
 import {
@@ -10,9 +11,10 @@ import {
   setLocalStorageItem,
   setLocalStorageTimestamp,
 } from "@/utils/localStorage";
-import { useEffect } from "react";
+import { useLoader } from "@/context/LoaderContext";
 
 export const usePodcastsDetails = (podcastId: string) => {
+  const { showLoader, hideLoader } = useLoader();
   const CACHE_KEY = `${PODCAST_DETAILS_CACHE_KEY}${podcastId}`;
   const isCacheExpired = checkIsCacheExpired(CACHE_KEY);
 
@@ -44,6 +46,15 @@ export const usePodcastsDetails = (podcastId: string) => {
       mutate();
     }
   }, [isCacheExpired, data, mutate]);
+  
+  useEffect(() => {
+    if (isLoading) {
+      showLoader();
+      return;
+    }
+    hideLoader();
+  }, [isLoading]);
+
   return {
     data,
     isLoading,

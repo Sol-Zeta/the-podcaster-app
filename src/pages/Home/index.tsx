@@ -22,7 +22,7 @@ const Home: React.FC = () => {
     setPodcastsToShow(data);
   }, [data]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return null;
   if (isError) return <p>Error loading podcasts</p>;
   return (
     <div data-testid="Home" className={styles.homeContainer}>
