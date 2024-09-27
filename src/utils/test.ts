@@ -115,6 +115,19 @@ export const mockApiResponse: PodcastListApiResponse = {
 };
 
 export const mockEpisodes = [
-  { id: "1", title: "Episode 1", date: "2023-04-01", duration: "30:00" },
-  { id: "2", title: "Episode 2", date: "2023-04-08", duration: "45:00" },
+  {
+    id: "1",
+    title: "Episode 1",
+    date: "2023-04-01",
+    duration: "30:00",
+    description: "Description for Episode 1",
+    track: "episode1.mp3",
+  },
+  {
+    id: "2",
+    title: "Episode 2",
+    date: "2023-04-08",
+    duration: "45:00",
+    description: "Description for Episode 2",
+  },
 ];

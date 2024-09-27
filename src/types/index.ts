@@ -4,6 +4,9 @@ export interface PodcastEpisodes {
   href: string;
   date: string;
   duration: string;
+  track: string;
+  trackFileExtension: string;
+  description: string;
 }
 
 export interface PodcastFormatedDetails {
@@ -13,4 +16,9 @@ export interface PodcastFormatedDetails {
   description: string;
   episodes: PodcastEpisodes[];
   author: string;
+}
+
+export interface EpisodesGridContextType {
+  podcastId?: string;
+  episodes: PodcastEpisodes[];
 }

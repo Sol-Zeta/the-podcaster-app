@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home/index';
 import PodcastLayout from '@/components/podcasts/PodcastLayout';
 import EpisodesGrid from '@/components/podcasts/EpisodesGrid';
-
 import EpisodeDetails from '@/pages/EpisodeDetails';
 import NotFound from '@/pages/NotFound';
 

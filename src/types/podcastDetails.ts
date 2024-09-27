@@ -9,6 +9,9 @@ export interface PodcastDetailsApiResponse {
     artistId: number;
     collectionId: number;
     trackId: number;
+    episodeUrl: string;
+    episodeFileExtension: string;
+    description: string;
     artistName: string;
     collectionName: string;
     trackName: string;
