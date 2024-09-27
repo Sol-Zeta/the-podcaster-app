@@ -21,6 +21,12 @@
 - **Testing Library:** Library for unit testing React components.
 - **Cypress:** Tool for end-to-end (e2e) testing.
 
+## Changelog
+
+For a detailed list of changes corresponding to each version of the app, please refer to the [CHANGELOG](./CHANGELOG.md). 
+<br>
+Each version is tagged with Git tags in specific commits.
+
 ## Installation
 
 To install the dependencies, run:

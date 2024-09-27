@@ -22,6 +22,12 @@
 - **Testing Library:** Librería para pruebas unitarias de componentes React.
 - **Cypress:** Herramienta para pruebas de extremo a extremo (e2e).
 
+## Changelog
+
+Para ver la lista detallada de cambios correspondientes a cada versión de la aplicación visita el [CHANGELOG](./CHANGELOG.md).
+<br>
+Cada versión de la aplicación fue etiquetada con un tag de Git en su commit específico.
+
 ## Instalación
 
 Para instalar las dependencias, ejecuta:
