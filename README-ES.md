@@ -1,6 +1,6 @@
-# La Aplicación Podcaster (SPA en React.js)
+# The Podcaster App (SPA en React.js)
 
-![Versión](https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000)
+![Versión](https://img.shields.io/badge/version-1.3.0-blue.svg?cacheSeconds=2592000)
 
 **Este README también está disponible en [Inglés](./README.md).**
 
