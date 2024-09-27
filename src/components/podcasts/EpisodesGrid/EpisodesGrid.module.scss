@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-medium;
-  // min-width: 280px;
-  // width: 100%;
   > div {
     padding: $spacing-small;
   }
@@ -13,9 +11,6 @@
     font-size: $font-size-large;
     margin: 0;
     align-self: flex-start;
-  }
-  @include respond-to(desktop) {
-    // max-width: 100%;
   }
 }
 
@@ -25,10 +20,9 @@
 }
 
 .episodeTable {
-  // width: 100%;
   border-collapse: collapse;
   padding: $spacing-medium;
-  
+
   th,
   td {
     padding: 0.5rem;

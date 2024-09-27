@@ -93,13 +93,14 @@ export const formatPodcastDetailResponse = async (
     const podcastData = listData.find(
       (item: PodcastCardProps) => item.id === podcastId
     );
+
     if (!podcastData) {
       throw new Error("No podcast data found");
     }
-    console.log({podcastEpisodes})
+
     return {
       id: podcastData.id,
-      image_url: podcastData.images[podcastData.images.length -1].image_url,
+      image_url: podcastData.images[podcastData.images.length - 1].image_url,
       title: podcastData.title,
       description: podcastData.description || "",
       author: podcastData.author,
@@ -109,9 +110,9 @@ export const formatPodcastDetailResponse = async (
         href: `podcast/${podcastData.id}/episode/${item.trackId}`,
         date: formatDateToDDMMYYYY(item.releaseDate),
         duration: msToHoursMinutesAndSeconds(item.trackTimeMillis),
-        track: item.episodeUrl || '',
+        track: item.episodeUrl || "",
         trackFileExtension: item.episodeFileExtension,
-        description: item.description
+        description: item.description,
       })),
     };
   } catch (error) {

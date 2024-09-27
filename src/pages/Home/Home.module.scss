@@ -1,4 +1,18 @@
+@import "@/styles/main.scss";
+
 .homeContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: $spacing-large $spacing-large 0 0;
+  @include respond-to(desktop) {
+    max-width: 1200px;
+  }
 }

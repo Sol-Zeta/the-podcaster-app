@@ -3,7 +3,6 @@ import { MemoryRouter, Outlet, Route, Routes } from "react-router-dom";
 import EpisodesGrid from "./index";
 import { mockEpisodes } from "@/utils/test";
 
-// Mock context provider
 const MockPodcastLayout = ({ episodes = mockEpisodes }) => (
   <MemoryRouter initialEntries={["/podcast/123"]}>
     <Routes>

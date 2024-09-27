@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Header from "./index";
+import { waitMS } from "@/utils/test";
 
 describe("Header component", () => {
   test("renders the title and link to the home page", () => {
@@ -24,8 +25,8 @@ describe("Header component", () => {
 
     const loaderElement = screen.getByTestId("puff-loading");
     expect(loaderElement).toBeVisible();
-    
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    await waitMS(2000);
     expect(loaderElement).not.toBeVisible();
   });
 });

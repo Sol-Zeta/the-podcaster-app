@@ -131,3 +131,6 @@ export const mockEpisodes = [
     description: "Description for Episode 2",
   },
 ];
+
+export const waitMS = async (millisenconds = 500) =>
+  await new Promise((resolve) => setTimeout(resolve, millisenconds));

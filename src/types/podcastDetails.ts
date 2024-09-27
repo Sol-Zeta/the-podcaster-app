@@ -27,7 +27,7 @@ export interface PodcastDetailsApiResponse {
     collectionPrice: number;
     trackPrice: number;
     collectionHdPrice: number;
-    releaseDate: string; // This can be changed to `Date` if you plan to parse it.
+    releaseDate: string;
     collectionExplicitness: string;
     trackExplicitness: string;
     trackCount: number;
